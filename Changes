@@ -1,0 +1,6 @@
+Revision history for Perl extension Attributes::Simple.
+
+0.01  Sun Jan  5 23:48:50 2014
+	- original version; created by h2xs 1.23 with options
+		-X Attributes::Simple
+

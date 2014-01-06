@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Attributes-Simple.t
+lib/Attributes/Simple.pm
