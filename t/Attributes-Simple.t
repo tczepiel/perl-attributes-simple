@@ -3,11 +3,12 @@ use warnings;
 
 use Test::More qw(no_plan);
 
-use Attributes::Simple qw(CODE get_attributes);
+use Attributes::Simple qw(CODE);
+use attributes qw();
 
 sub blah :Meh { 1 }
 
-my @a = get_attributes('main', \&blah);
+my @a = attributes::get(\&blah);
 
 cmp_ok($a[0], 'eq', 'Meh');
 

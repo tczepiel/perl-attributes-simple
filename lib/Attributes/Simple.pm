@@ -33,13 +33,8 @@ sub import {
 
     my $p = Package::Stash->new($caller);
     for my $type (@attr_types) {
-        if ( $type eq 'get_attributes' ) {
-            $p->add_symbol('&get_attributes', \&get_attributes);
-        }
-        else {
-            $p->add_symbol("&MODIFY_${type}_ATTRIBUTES", \&_mod_attributes);
-            $p->add_symbol("&FETCH_${type}_ATTRIBUTES",\&_fetch_attributes);
-        }
+        $p->add_symbol("&MODIFY_${type}_ATTRIBUTES", \&_mod_attributes);
+        $p->add_symbol("&FETCH_${type}_ATTRIBUTES", \&_fetch_attributes);
     }
 }
 
@@ -63,16 +58,16 @@ Attributes::Simple
 
 =head1 SYNOPSIS
 
-use strict;
-use warnings;
+    use strict;
+    use warnings;
 
-use Attributes::Simple qw(CODE); # types: SCALAR,ARRAY,CODE etc.
-
-
-sub foo: SomeAttribute { ... }
+    use Attributes::Simple qw(CODE); # types: SCALAR,ARRAY,CODE etc.
 
 
-my @attrlist = Attributes::Simple::get_attributes(__PACKAGE__, \&foo);
+    sub foo: SomeAttribute { ... }
+
+
+    my @attrlist = Attributes::Simple::get_attributes(__PACKAGE__, \&foo);
 
 
 =head1 SEE ALSO
