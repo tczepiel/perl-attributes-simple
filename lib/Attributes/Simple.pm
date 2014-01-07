@@ -67,7 +67,8 @@ Attributes::Simple
     sub foo: SomeAttribute { ... }
 
 
-    my @attrlist = Attributes::Simple::get_attributes(__PACKAGE__, \&foo);
+    require attributes;
+    my @attrlist = attributes::get(\&foo);
 
 
 =head1 SEE ALSO
