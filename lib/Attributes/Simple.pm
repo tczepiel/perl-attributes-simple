@@ -22,7 +22,6 @@ sub _fetch_attributes {
         or return;
 
     return wantarray ? @$attrs : $attrs;
-    return;
 }
 
 sub import {
