@@ -9,6 +9,6 @@ WriteMakefile(
         'Package::Stash' => 0,
     },
      ($] >= 5.005 ?
-           (ABSTRACT_FROM  => 'lib/Attributes/Simple.pm', # retrieve abstract from module
+           (ABSTRACT      => 'Declare package-specific attributes.',
            AUTHOR         => 'Tomasz Czepiel') : ()),
 );

@@ -11,7 +11,7 @@ our %__ATTRIBUTES_LIST;
 sub _mod_attributes {
     my ($pkg,$subref,@attrs) = @_;
 
-    $__ATTRIBUTES_LIST{$subref} = \@attrs;
+    $__ATTRIBUTES_LIST{$subref} = \@attrs if @attrs;
     return;
 }
 
@@ -54,6 +54,9 @@ __END__
 
 Attributes::Simple
 
+=head1 DESCRIPTION
+
+Declare package-specific attributes.
 
 =head1 SYNOPSIS
 
@@ -62,13 +65,11 @@ Attributes::Simple
 
     use Attributes::Simple qw(CODE); # types: SCALAR,ARRAY,CODE etc.
 
-
-    sub foo: SomeAttribute { ... }
-
-
     require attributes;
     my @attrlist = attributes::get(\&foo);
 
+    ...
+    my @attrlist  = Attributes::Simple::get_attributes(\(my $foo : Bar = 1 ));
 
 =head1 SEE ALSO
 

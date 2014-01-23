@@ -1,15 +1,18 @@
 use strict;
 use warnings;
-
-use Test::More qw(no_plan);
+use Test::More tests => 2;
 
 use Attributes::Simple qw(CODE);
 use attributes qw();
 
-sub blah :Meh { 1 }
+sub some_sub :FOO { 1 }
 
-my @a = attributes::get(\&blah);
+sub bar :Baz(foo) {
+    return 'bar';
+}
 
-cmp_ok($a[0], 'eq', 'Meh');
+cmp_ok(attributes::get(\&some_sub)->[0], 'eq', 'FOO');
+cmp_ok(attributes::get(\&bar)->[0],'eq', 'Baz(foo)');
+
 
 
